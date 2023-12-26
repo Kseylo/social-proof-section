@@ -1,0 +1,117 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin-block-end: 0;
+    margin-block-start: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+    line-height: 1.1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+:target {
+    scroll-margin-block: 5ex;
+}
+
+// MEDIA QUERIES
+// MIXINS
+
+@mixin tablet() {
+    @media screen and (width >= 48em) {
+        @content;
+    }
+}
+
+@mixin desktop() {
+    @media screen and (width >= 70em) {
+        @content;
+    }
+}
+
+// COLORS
+// PRIMARY COLORS
+$very-dark-magenta: hsl(300, 43%, 22%);
+$soft-pink: hsl(333, 80%, 67%);
+// NEUTRAL COLORS
+$dark-grayish-magenta: hsl(303, 10%, 53%);
+$light-grayish-magenta: hsl(300, 24%, 96%);
+$white: hsl(0, 0%, 100%);
+
+:root {
+    font-family: 'League Spartan', sans-serif;
+}
+
+body {
+}
+
+main {
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
+    align-items: center;
+}
