@@ -1,5 +1,5 @@
 
-- Превью: https://kseylo.github.io/four-card-feature-section/
+- Превью: https://kseylo.github.io/social-proof-section/
 ## Установка:
 
 Установка зависимостей
