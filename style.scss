@@ -107,38 +107,67 @@ $white: hsl(0, 0%, 100%);
 }
 
 body {
+    display: grid;
+    justify-items: center;
+    background-image: url('assets/images/bg-pattern-top-mobile.svg'),
+        url('assets/images/bg-pattern-bottom-mobile.svg');
+    background-position:
+        left top,
+        right bottom;
+    background-repeat: no-repeat no-repeat;
+    @include tablet() {
+        background-image: url('assets/images/bg-pattern-top-desktop.svg'),
+            url('assets/images/bg-pattern-bottom-desktop.svg');
+    }
 }
 
 main {
     display: grid;
     min-height: 100dvh;
-    margin: 6rem 1rem;
     gap: 3rem;
+    grid-template-rows: repeat(3, max-content);
+    margin: 3rem 1rem;
 
     @include desktop() {
+        margin: 0;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: repeat(2, max-content);
+        max-width: 72rem;
+        align-items: center;
+        row-gap: 5rem;
+        align-content: center;
     }
 }
 
 header {
     text-align: center;
+    @include desktop() {
+        text-align: left;
+    }
     h1 {
         font-size: 2.5rem;
         color: $very-dark-magenta;
         line-height: 2rem;
+        @include desktop() {
+            font-size: 3rem;
+            line-height: 1;
+            max-width: 24rem;
+        }
     }
     p {
         color: $dark-grayish-magenta;
         font-weight: 500;
         margin-top: 1rem;
+        @include desktop() {
+            font-size: 1.15rem;
+            max-width: 28rem;
+        }
     }
 }
 .ratings {
-    width: 100%;
     display: grid;
     gap: 1rem;
-
+    justify-items: end;
     .rating {
         background-color: $light-grayish-magenta;
         display: flex;
@@ -146,17 +175,21 @@ header {
         align-items: center;
         padding: 1rem;
         border-radius: 0.5rem;
-
+        width: 100%;
+        gap: 0.5rem;
         @include tablet() {
             flex-direction: row;
             justify-content: center;
             gap: 2rem;
+        }
 
-            &:nth-child(2) {
-                margin-left: 5rem;
+        @include desktop() {
+            max-width: 26rem;
+            &:nth-child(1) {
+                margin-right: 8rem;
             }
-            &:nth-child(3) {
-                margin-left: 9rem;
+            &:nth-child(2) {
+                margin-right: 4rem;
             }
         }
 
@@ -175,8 +208,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
-    @include tablet() {
+    @include desktop() {
         flex-direction: row;
         gap: 2rem;
         grid-column: 1 / -1;
@@ -190,6 +222,18 @@ header {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    @include desktop() {
+        &:nth-child(1) {
+            margin-bottom: 2rem;
+        }
+        &:nth-child(2) {
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+        &:nth-child(3) {
+            margin-top: 2rem;
+        }
+    }
 
     header {
         display: flex;
